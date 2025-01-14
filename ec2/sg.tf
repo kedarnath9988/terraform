@@ -1,8 +1,6 @@
 resource "aws_security_group" "allow_all" {
      name        = "allow_all"
      description = "allowing everything"
-    vpc_id      = "${aws_vpc.main.id}"
-
     # allwing everything 
     egress {
     from_port   = 0
