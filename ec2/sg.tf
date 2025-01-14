@@ -1,3 +1,16 @@
+resource "aws_instance" "db" {
+    name ="db"
+    ami  = "ami-09c813fb71547fc4f"
+    instance_type = "t2.micro"
+    vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+
+      tags = {
+    Name = "db"
+    created_by = "kedarnath"
+  }
+
+}
+
 resource "aws_security_group" "allow_all" {
      name        = "allow_all"
      description = "allowing everything"
@@ -16,8 +29,6 @@ resource "aws_security_group" "allow_all" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-
     tags = {
     Name = "allow_all"
     created_by ="kedarnath"
