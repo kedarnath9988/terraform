@@ -8,26 +8,22 @@ resource "aws_instance" "db" {
 }
 
 resource "aws_security_group" "allow_all" {
-     name        = "allow_all"
-     description = "allowing everything"
+     name        = var.sg_name
+     description = var.sg_discription
     # allwing everything 
     egress {
-    from_port   = 0
-    to_port     = 0
+    from_port   = var.exgress_port
+    to_port     = var.exgress_port
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.cidr_blockes_ingress
   }
 
     # allowing the TCP protocol with port 22 
     ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   =  var.allow_port
+    to_port     =  var.allow_port
+    protocol    =  var.ssh_protocol
+    cidr_blocks =  var.cidr_blockes_ingress
   }
-    tags = {
-    Name = "allow_all"
-    created_by ="kedarnath"
-  }
-  
+    tags = var.sg_tags
 }

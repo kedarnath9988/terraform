@@ -17,3 +17,36 @@ variable "tags" {
 
     }
 }
+variable "sg_name" {
+    default = "allow_all"
+}
+
+variable "sg_discription" {
+    default = "allowing everything potr  "
+}
+
+variable "allow_port" {
+    type = number 
+    default = 22 
+}
+
+variable "ssh_protocol" {
+    default = "tcp"
+}
+
+variable "cidr_blockes_ingress" {
+    type = list(string)
+    default = [0.0.0.0/0]
+}
+
+variable "sg_tags" {
+    default = {
+        name ="allow_all"
+        created_by = "kedarnath"
+    }
+}
+
+variable "exgress_port" {
+    type = number
+    default = 0 
+}
