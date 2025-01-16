@@ -5,7 +5,7 @@ variable "ami_id" {
 }
 
 variable "instance_type" {
-    default = "t3.micro"
+    # default = "t3.micro"
 }
 
 variable "tags" {
@@ -36,7 +36,7 @@ variable "ssh_protocol" {
 
 variable "cidr_blockes_ingress" {
     type = list(string)
-    default = [0.0.0.0/0]
+    default = ["0.0.0.0/0"]
 }
 
 variable "sg_tags" {

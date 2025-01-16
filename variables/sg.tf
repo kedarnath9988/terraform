@@ -1,12 +1,9 @@
 resource "aws_instance" "db" {
     ami  = var.ami_id
-    instance_type = var.instance_type
+    #instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.allow_all.id]
-
     tags = var.tags
-
 }
-
 resource "aws_security_group" "allow_all" {
      name        = var.sg_name
      description = var.sg_discription
@@ -17,7 +14,6 @@ resource "aws_security_group" "allow_all" {
     protocol    = "-1"
     cidr_blocks = var.cidr_blockes_ingress
   }
-
     # allowing the TCP protocol with port 22 
     ingress {
     from_port   =  var.allow_port
