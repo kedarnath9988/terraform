@@ -5,6 +5,7 @@ variable "ami_id" {
 }
 
 variable "instance_name" {
-    default = "DB"
+    type = list(string)
+    default = [ "DB","Frountend","backend" ]
 }
 

@@ -12,16 +12,18 @@ variable "ami_id" {
 }
 
 variable "instance_type" {
-    # default = "t3.micro"
+    default = "t3.micro"
+}
+
+variable "instance_name" {
+    type = list
+    default = [ "DB", "Frontend", "Backend" ]
 }
 
 variable "tags" {
     default = {
         project = "expense"
         Environment = "Dev"
-        Module = "DB"
-        name = "DB"
-
     }
 }
 variable "sg_name" {
